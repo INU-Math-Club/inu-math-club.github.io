@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>INU Math Club</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="images\INU_UI_CI2\png\휘장_png\휘장.png">
+
+</head>
+
+<body>
+
+    <!-- Primary Page Layout
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <div class="container">
+        <div class="row">
+            <div class="one-half column" style="margin-top: 25%">
+                <h3>Upload Files of a Presentation</h3>
+            </div>
+        </div>
+        <input type="file" id="reference_files" multiple="multiple" />
+        <script type="text/javascript">
+            const fileInput = document.getElementById("reference_files");
+
+            fileInput.onchange = () => {
+                const selectedFiles = [...fileInput.files];
+                console.log("selected files: ");
+                console.log(selectedFiles);
+            };
+            
+            // TODO: obtain more informations: presentation title, date, speaker name, name of each reference files (file name as default)
+            // TODO: upload the downloaded files to server with all data
+            // TODO: create a row of the presentation to the main page
+                // TODO: Or change main page as taking each presentation data from server and creating the table
+        </script>
+    </div>
+    <!-- End Document
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+
+</html>
