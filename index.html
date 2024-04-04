@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <head>
 
@@ -101,13 +102,77 @@
                                 <a href="References\down with determinant_2024.01.26-2024.02.02_Kwon Hyukmo\Lecture - DwD.pdf" target="_blank">slide (png)</a>
                             </td>
                         </tr>
+                        <tr>
+                            <td>THE GENERALIZED RIEMAN INTEGRAL </td>
+                            <td>2024.02.23</td>
+                            <td>Jo Hyenosu</td>
+                                <td>N/A</td>
+                        </tr>
+                        <tr>
+                            <td>HOLDER'S INEQUALITY </td>
+                            <td>2024.03.11</td>
+                            <td>Lee Junyub</td>
+                                <td>N/A</td>
+                        </tr>
+                        <tr>
+                            <td>TROPICAL ALGEBRA-FTA OVER TROPICAL ALGEBRA </td>
+                            <td>2024.03.18</td>
+                            <td>Jo Hanjin</td>
+                                <td>N/A</td>
+                        </tr>
+                        <tr>
+                            <td>Learning Wolfram Mathmatica(1/2) </td>
+                            <td>2024.03.29</td>
+                            <td>Kwon Hyukmo</td>
+                                <td>N/A</td>
+                        </tr>
                     </tbody>
                 </table>
+
             </div>
         </div>
     </div>
     <!-- End Document
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    ––––––––––––––––––––––––––––––––––––––––––––––––––--> pagination.
+        <div id="pagination"></div>
+        <script>
+$(document).ready(function(){
+    var rowsToShow = 5;
+    var rows = $('.u-full-width tbody tr').toArray();
+    rows.sort(function(a, b) {
+        var dateA = $(a).find('td:nth-child(2)').text();
+        var dateB = $(b).find('td:nth-child(2)').text();
+        return new Date(dateB) - new Date(dateA);
+    });
+    $('.u-full-width tbody').empty().append(rows);
+
+    var rowsTotal = rows.length;
+    var numPages = Math.ceil(rowsTotal / rowsToShow);
+
+    $('.u-full-width tbody tr').hide();
+    $('.u-full-width tbody tr').slice(0, rowsToShow).show();
+
+    $('#pagination').empty();
+    for(var i = 0; i < numPages; i++) {
+        var pageNum = i + 1;
+        $('#pagination').append('<a href="#" rel="' + i + '">' + pageNum + '</a> ');
+    }
+
+    $('#pagination a:first').addClass('active');
+    $('#pagination a').bind('click', function(){
+        $('#pagination a').removeClass('active');
+        $(this).addClass('active');
+
+        var currPage = $(this).attr('rel');
+        var startItem = currPage * rowsToShow;
+        var endItem = startItem + rowsToShow;
+
+        $('.u-full-width tbody tr').css('opacity', '0.0').hide().slice(startItem, endItem).
+        css('display', 'table-row').animate({opacity:1}, 300);
+    });
+});
+        </script>
 </body>
 
 </html>
